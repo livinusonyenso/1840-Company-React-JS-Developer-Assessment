@@ -32,8 +32,8 @@ A simple and efficient **Task Management Application** built with **React, TypeS
 
 ### 1⃣ **Clone the Repository**
 ```sh
-git clone https://github.com/your-username/task-manager.git
-cd task-manager
+git clone https://github.com/livinusonyenso/1840-Company-React-JS-Developer-Assessment.git
+cd 1840-Company-React-JS-Developer-Assessment
 ```
 
 ### 2⃣ **Install Dependencies**
@@ -123,7 +123,7 @@ npm test
 ---
 
 ## 💡 Future Improvements
-- ✅ **Integrating third party css lib like tailwindCss**  
+- ✅ **Integrating third party css lib like tailwindCss and animations**  
 - ✅ **User Authentication (Login/Signup)**  
 - ✅ **Database Integration (Firebase or Supabase)**  
 - ✅ **Dark Mode Theme**  
