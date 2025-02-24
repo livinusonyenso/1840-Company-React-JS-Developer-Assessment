@@ -1,42 +1,267 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.flex {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 50px;
+}
+/* App Container */
+.app-container {
+  margin: 20px auto;
+  padding: 20px;
+  background: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 95vw;
+  height: 100vh;
+}
+
+/* Heading */
+h1 {
   text-align: center;
+  color: #333;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Task Form */
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  flex: 1;
+  height: 500px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.task-form input,
+.task-form textarea,
+.task-form select {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
 }
 
-.card {
-  padding: 2em;
+.task-form button {
+  background: #007bff;
+  color: white;
+  padding: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
-.read-the-docs {
-  color: #888;
+.task-form button:hover {
+  background: #0056b3;
+}
+
+/* Task List */
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.task-list-container {
+  padding: 20px;
+  flex: 2;
+}
+
+.task-controls {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.task-controls input,
+.task-controls select {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.no-tasks {
+  text-align: center;
+  font-size: 16px;
+  color: gray;
+}
+
+/* Task Card */
+.task-card-wrapper {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  height: 100%;
+  overflow: scroll;
+}
+.task-card {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  border-left: 5px solid #007bff;
+  cursor: pointer;
+}
+
+.task-card-low {
+  border-left: 5px solid #28a745;
+}
+
+.task-card-medium {
+  border-left: 5px solid #ffc107;
+}
+
+.task-card-high {
+  border-left: 5px solid #dc3545;
+}
+
+.task-card h3 {
+  margin: 0;
+  color: #333;
+}
+
+.task-card p {
+  color: #555;
+  font-size: 14px;
+}
+
+.task-card .task-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.task-card .priority {
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.priority-low {
+  background-color: #28a745;
+  color: white;
+}
+
+.priority-medium {
+  background-color: #ffc107;
+  color: white;
+}
+
+.priority-high {
+  background-color: #dc3545;
+  color: white;
+}
+
+.task-card button {
+  background: red;
+  color: white;
+  padding: 5px 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.task-card button:hover {
+  background: darkred;
+}
+
+/* Modal Styles */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h2 {
+  margin-top: 0;
+}
+
+.modal-content select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.close-btn {
+  margin-top: 10px;
+  background: red;
+  color: white;
+  padding: 10px;
+  border: none;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  background: darkred;
+}
+
+
+.error-boundary {
+  text-align: center;
+  padding: 20px;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  margin: 20px auto;
+  max-width: 400px;
+}
+
+.error-boundary h2 {
+  margin-bottom: 10px;
+}
+
+.error-boundary button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.error-boundary button:hover {
+  background-color: #c82333;
+}
+
+.draggable-task {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: grab;
+  transition: transform 0.2s ease-in-out;
+}
+
+.draggable-task:active {
+  cursor: grabbing;
+  transform: scale(1.05);
 }
