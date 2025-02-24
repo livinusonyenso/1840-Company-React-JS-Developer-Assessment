@@ -62,6 +62,7 @@ const TaskForm: React.FC = () => {
         name="dueDate"
         value={task.dueDate}
         onChange={handleChange}
+        min={new Date().toISOString().split("T")[0]}
         required
       />
 
