@@ -142,6 +142,6 @@ This project is **MIT licensed**.
 ---
 
 ## 📞 Contact
-- **GitHub:** [@your-username](https://github.com/your-username)
-- **Email:** your.email@example.com
+- **GitHub:** [@livinusonyenso](https://github.com/livinusonyenso)
+- **Email:** livinusonyenso@gmail.com
 
