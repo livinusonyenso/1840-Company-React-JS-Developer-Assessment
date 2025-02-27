@@ -1,7 +1,7 @@
 /* Global Styles */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  background-color: #fff;
   margin: 0;
   padding: 0;
   display: flex;
@@ -11,7 +11,7 @@ body {
 .flex {
   display: flex;
   flex-wrap: wrap;
-  gap: 50px;
+  gap: 24px;
 }
 /* App Container */
 .app-container {
@@ -40,7 +40,7 @@ h1 {
   border-radius: 8px;
   background: #fff;
   flex: 1;
-  height: 500px;
+  max-height: max-content;
 }
 
 .task-form input,

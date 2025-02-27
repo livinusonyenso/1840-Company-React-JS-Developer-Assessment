@@ -37,11 +37,14 @@ const TaskForm: React.FC = () => {
       priority: "medium",
       status: "to-do",
     });
+    alert('TASK ADDED SUCCESSFULLY')
   };
 
   return (
     <form onSubmit={handleSubmit} className="task-form">
       <h2>Add New Task</h2>
+      <label>Tasks Title:</label>
+
       <input
         type="text"
         name="title"
@@ -50,6 +53,8 @@ const TaskForm: React.FC = () => {
         onChange={handleChange}
         required
       />
+      <label>Task Description:</label>
+
       <textarea
         name="description"
         placeholder="Task Description"
@@ -57,6 +62,8 @@ const TaskForm: React.FC = () => {
         onChange={handleChange}
         required
       />
+      <label>Task Date:</label>
+
       <input
         type="date"
         name="dueDate"
@@ -66,7 +73,7 @@ const TaskForm: React.FC = () => {
         required
       />
 
-      <label>Priority:</label>
+      <label>Task Priority:</label>
       <select name="priority" value={task.priority} onChange={handleChange}>
         <option value="low">Low</option>
         <option value="medium">Medium</option>

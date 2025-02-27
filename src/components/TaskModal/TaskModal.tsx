@@ -27,17 +27,24 @@ const TaskModal: React.FC<TaskModalProps> = ({ task, onClose }) => {
         <h2>{task.title}</h2>
         <p>{task.description}</p>
         <p>
-          <strong>Due Date:</strong> {task.dueDate}
+          <strong>Due Date:</strong>
+          <br />
+          <span>
+
+           {task.dueDate}
+          </span>
         </p>
 
-        <label>Status:</label>
+        <strong>Status:</strong>
         <select value={task.status} onChange={handleStatusChange}>
           <option value="to-do">To-Do</option>
           <option value="in-progress">In Progress</option>
           <option value="done">Done</option>
         </select>
+        <br />
+        <br />
 
-        <label>Priority:</label>
+        <strong>Priority:</strong>
         <select value={task.priority} onChange={handlePriorityChange}>
           <option value="low">Low</option>
           <option value="medium">Medium</option>

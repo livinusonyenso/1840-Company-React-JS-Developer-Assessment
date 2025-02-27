@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import { TaskCardProps } from "../../types/TaskTypes";
 import { useTaskContext } from "../../context/TaskContext";
-import TaskModal from "../TaskModal/TaskModal";
 
-const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
+const TaskCard: React.FC<TaskCardProps> = ({ task, setIsModalOpen }) => {
   const { dispatch } = useTaskContext();
-  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <>
@@ -34,16 +32,15 @@ const TaskCard: React.FC<TaskCardProps> = ({ task }) => {
             {task.priority.toUpperCase()}
           </span>
           <button
-            onClick={() => dispatch({ type: "DELETE_TASK", payload: task.id })}
+            onClick={(e) => {
+              e.stopPropagation();
+              dispatch({ type: "DELETE_TASK", payload: task.id });
+            }}
           >
             ❌ Delete
           </button>
         </div>
       </div>
-
-      {isModalOpen && (
-        <TaskModal task={task} onClose={() => setIsModalOpen(false)} />
-      )}
     </>
   );
 };

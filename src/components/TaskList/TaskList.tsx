@@ -1,12 +1,17 @@
 import TaskForm from "../TaskForm/TaskForm";
-import React from "react";
+import React, { useState } from "react";
 import { useTaskContext } from "../../context/TaskContext";
 import { useTaskList } from "../../hooks/useTasks";
 import TaskControls from "../TaskControl/TaskControls";
 import TaskCard from "../TaskCard/TaskCard";
+import TaskModal from "../TaskModal/TaskModal";
+import { Task } from "../../types/TaskTypes";
 
 const TaskList: React.FC = () => {
   const { state } = useTaskContext();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalData, setModalData] = useState<Task>({} as Task);
+
   const {
     searchTerm,
     setSearchTerm,
@@ -57,14 +62,22 @@ const TaskList: React.FC = () => {
                     onDragStart={() => handleDragStart(task.id)}
                     onDragOver={handleDragOver}
                     onDrop={() => handleDrop(task.id)}
+                    onClick={() => setModalData(task)}
                   >
-                    <TaskCard task={task} />
+                    <TaskCard task={task} setIsModalOpen={setIsModalOpen} />
                   </div>
                 ))
               ) : (
                 <p className="no-tasks">No tasks found.</p>
               )}
             </div>
+
+            {isModalOpen && (
+              <TaskModal
+                task={modalData}
+                onClose={() => setIsModalOpen(false)}
+              />
+            )}
           </div>
         </div>
       )}

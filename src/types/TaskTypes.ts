@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { Dispatch, ReactNode, SetStateAction } from "react";
 
 export type Task = {
   id: string;
@@ -31,6 +31,7 @@ export interface TaskAction {
 
 export interface TaskCardProps {
   task: Task;
+  setIsModalOpen: Dispatch<SetStateAction<boolean>>
 }
 
 export interface TaskModalProps {
